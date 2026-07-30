@@ -4,6 +4,13 @@
 import os
 import telebot
 
-TOKEN = os.getenv('8935702983:AAELaMVrcO0smlq5MtxBB3A2qfInfW_pxAo')
+# Переменные окружения
+TOKEN = os.getenv('TOKEN')
 ADMIN_ID = int(os.getenv('ADMIN_ID', 848208221))
+
+# Проверка, что токен получен
+if TOKEN is None:
+    raise ValueError("Переменная TOKEN не найдена! Добавьте её в Railway Variables.")
+
+# Создание экземпляра бота
 bot = telebot.TeleBot(TOKEN)
